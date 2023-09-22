@@ -1,4 +1,8 @@
 .overlay {
+  display: none;
+}
+
+.overlay.show {
   background-color: rgba(0, 0, 0, .5);
   display: grid;
   height: 100vh;
