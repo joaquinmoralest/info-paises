@@ -1,0 +1,23 @@
+.form {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form input {
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.form button {
+  align-self: stretch;
+  background-color: black;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 5px 20px;
+}

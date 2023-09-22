@@ -12,15 +12,19 @@ function Modal({ country, isOpen, handleClose }) {
     // population,
     // timezones,
     // continents,
-    // flags,
-    // coatOfArms,
+    flags,
+    coatOfArms,
   } = country
 
   return (
     <div className={`${styles.overlay} ${isOpen && styles.show}`}>
       <div className={styles.modal}>
         <button onClick={handleClose}>X</button>
-        <h2>{name?.common}</h2>
+        <h2 className={styles.title}>{name?.common}</h2>
+        <div className={styles.images}>
+          <img src={flags?.png} alt="" />
+          <img src={coatOfArms?.png} alt="" />
+        </div>
       </div>
     </div>
   );

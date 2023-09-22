@@ -3,9 +3,11 @@ import Container from './components/Container'
 import { useFetch } from './hooks/useFetch'
 import styles from './styles/App.module.css'
 import GridView from './components/GridView'
+import { useCountryStore } from './store'
 
 function App () {
   const {data, loading, error} = useFetch('https://restcountries.com/v3.1/all')
+  const searchedCountry = useCountryStore(state => state.search)
 
   return (
     <>
@@ -18,7 +20,9 @@ function App () {
         <Container>
           {error && <p>Error: {error}</p>}
           {loading && <p>Loading...</p>}
-          <GridView data={data} />
+          {searchedCountry.length === 0
+            ? <GridView data={data} />
+            : <GridView data={searchedCountry} />}
         </Container>
       </main>
     </>
