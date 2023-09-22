@@ -1,10 +1,25 @@
 import styles from '../styles/Card.module.css'
 
-function Card({ country }) {
+function Card({ country, handleClick }) {
+  const {
+    name,
+    capital,
+    flag,
+    population,
+    continents,
+  } = country
+
   return (
-    <article className={styles.card}>
-      <h2>{country?.flag} {country?.name?.common}</h2>
-    </article>
+    <>
+      <article onClick={handleClick} className={styles.card}>
+        <h3>{continents}</h3>
+        <h2>{flag} {name?.common}</h2>
+        <div className={styles.body}>
+          <p>Capital: {capital}</p>
+          <p>Population: {population}</p>
+        </div>
+      </article>
+    </>
   );
 }
 

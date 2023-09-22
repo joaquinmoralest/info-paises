@@ -1,7 +1,13 @@
-.content {
-  color: black;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  margin: 20px 0;
+.header {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
+
+.content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+

@@ -1,0 +1,18 @@
+.overlay {
+  background-color: rgba(0, 0, 0, .5);
+  display: grid;
+  height: 100vh;
+  position: fixed;
+  place-items: center;
+  top: 0;
+  width: 100vw;
+}
+
+.modal {
+  background-color: white;
+  border-radius: var(--border-radius);
+  color: black;
+  max-width: 500px;
+  padding: 20px;
+  width: 90%;
+}
