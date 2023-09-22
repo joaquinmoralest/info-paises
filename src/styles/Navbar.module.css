@@ -1,0 +1,15 @@
+.nav {
+  align-items: center;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.nav input {
+  border: none;
+  border-radius: 5px;
+  max-width: 400px;
+  padding: 10px 20px;
+  width: 100%;
+}
