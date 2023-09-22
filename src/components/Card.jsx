@@ -6,17 +6,22 @@ function Card({ country, handleClick }) {
     capital,
     flag,
     population,
-    continents,
+    languages
   } = country
+
+  let mappedLanguages = []
+  if (languages) {
+    mappedLanguages = Object.values(languages).join(', ')
+  }
 
   return (
     <>
       <article onClick={handleClick} className={styles.card}>
-        <h3>{continents}</h3>
         <h2>{flag} {name?.common}</h2>
         <div className={styles.body}>
           <p>Capital: {capital}</p>
           <p>Population: {population}</p>
+          <p>Languages: {mappedLanguages}</p>
         </div>
       </article>
     </>
