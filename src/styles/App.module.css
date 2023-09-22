@@ -1,5 +1,6 @@
 .header {
-  background-color: aliceblue;
+  background-color: var(--color-secondary);
+  border-bottom: 2px solid var(--color-primary);
   display: flex;
   justify-content: center;
   width: 100%;

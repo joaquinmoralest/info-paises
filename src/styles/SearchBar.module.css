@@ -8,16 +8,24 @@
 }
 
 .form input {
-  border: none;
+  background-color: inherit;
+  border: 1px solid var(--color-primary);
   border-radius: var(--border-radius);
+  color: inherit;
   padding: 10px 20px;
   width: 100%;
 }
 
+.form input::placeholder {
+  color: inherit;
+}
+
 .form button {
   align-self: stretch;
-  background-color: black;
-  border: none;
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-primary);
   border-radius: var(--border-radius);
+  color: inherit;
+  cursor: pointer;
   padding: 5px 20px;
 }

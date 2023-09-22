@@ -4,6 +4,7 @@
 
 .overlay.show {
   background-color: rgba(0, 0, 0, .5);
+  color: var(--color-secondary);
   display: grid;
   height: 100vh;
   position: fixed;
@@ -13,9 +14,8 @@
 }
 
 .modal {
-  background-color: white;
+  background-color: var(--color-primary);
   border-radius: var(--border-radius);
-  color: black;
   display: flex;
   flex-direction: column;
   max-width: 500px;
@@ -31,11 +31,12 @@
 .images {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .images img {
-  max-width: 180px;
+  max-width: 150px;
   width: 100%;
   object-fit: contain;
   aspect-ratio: 4/3;
@@ -43,8 +44,9 @@
 
 .modal button {
   align-self: flex-end;
-  background: none;
   border: none;
-  color: black;
+  background: none;
+  color: var(--color-secondary);
   font-size: 1rem;
+  font-weight: 600;
 }
