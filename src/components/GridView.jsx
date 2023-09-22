@@ -56,7 +56,7 @@ function GridView({ data }) {
           <button>Reset</button>
           <select>
             <option value="">Select a region</option>
-            {continents.map(continent => {
+            {continents?.map(continent => {
               return(
                 <option key={continent} value={continent}>{continent}</option>
               )

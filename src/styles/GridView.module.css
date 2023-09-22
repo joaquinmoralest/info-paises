@@ -55,3 +55,10 @@
   cursor: pointer;
   padding: 5px 20px;
 }
+
+.filters select {
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  padding: 5px 10px;
+}

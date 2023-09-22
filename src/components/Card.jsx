@@ -19,9 +19,9 @@ function Card({ country, handleClick }) {
       <article onClick={handleClick} className={styles.card}>
         <h2>{flag} {name?.common}</h2>
         <div className={styles.body}>
-          <p>Capital: {capital}</p>
-          <p>Population: {population}</p>
-          <p>Languages: {mappedLanguages}</p>
+          <p>Capital: <span>{capital}</span></p>
+          <p>Population: <span>{population}</span></p>
+          <p>Languages: <span>{mappedLanguages}</span></p>
         </div>
       </article>
     </>
