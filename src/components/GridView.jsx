@@ -5,8 +5,10 @@ import Modal from './Modal';
 import list from '../assets/icons/list.svg'
 import grid from '../assets/icons/grid.svg'
 import { useCountryStore } from '../store';
+import { useFetch } from '../hooks/useFetch';
 
-function GridView({ data }) {
+function GridView({ countries }) {
+  const {data} = useFetch('https://restcountries.com/v3.1/all')
   const [isOpen, setIsOpen] = useState(false)
   const [selectedCountry, setSelectedCountry] = useState({})
   const [isGridSelected, setIsGridSelected] = useState(true)
@@ -24,7 +26,7 @@ function GridView({ data }) {
     let continentsWithoutDuplicates = Array.from(setWithoutDuplicate)
 
     setContinents(continentsWithoutDuplicates)
-  }, [data, filter])
+  }, [data])
 
   function showModal(countryInfo) {
     setIsOpen(true)
@@ -64,7 +66,7 @@ function GridView({ data }) {
         </div>
       </section>
       <div className={isGridSelected ? styles.grid : styles.list}>
-        {data?.map((country, index) => {
+        {countries?.map((country, index) => {
           return(
             <Card 
               key={index} 

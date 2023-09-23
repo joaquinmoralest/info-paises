@@ -13,12 +13,10 @@ function App () {
   const filter = useCountryStore(state => state.filter)
 
   useEffect(() => {
-    let countries
-    countries = data?.filter(country => country.region === filter)
-
+    const countries = data?.filter(country => country.region === filter)
     setFilteredCountries(countries)
-    console.log(filteredCountries)
-  }, [filter])
+    console.log(filter)
+  }, [data, filter])
 
   return (
     <>
@@ -31,15 +29,12 @@ function App () {
         <Container>
           {error && <p>Error: {error}</p>}
           {loading && <p>Loading...</p>}
-          {filter === ''
+          {filter === '' || filter === undefined
             ? (searchedCountry.length === 0
-              ? <GridView data={data} />
-              : <GridView data={searchedCountry} />)
-            : (<GridView data={filteredCountries} />)
+              ? <GridView countries={data} />
+              : <GridView countries={searchedCountry} />)
+            : (<GridView countries={filteredCountries} />)
           }
-          {/* {searchedCountry.length === 0
-            ? <GridView data={data} />
-            : <GridView data={searchedCountry} />} */}
         </Container>
       </main>
     </>
