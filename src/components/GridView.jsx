@@ -15,6 +15,7 @@ function GridView({ countries }) {
   const [continents, setContinents] = useState()
   const [filter, setFilter] = useState()
   const updateFilter = useCountryStore((state) => state.updateFilter)
+  const updateSearch = useCountryStore((state) => state.updateSearch)
 
   useEffect(() => {
     let allContinents = []
@@ -42,6 +43,11 @@ function GridView({ countries }) {
     updateFilter(filter)
   }
 
+  function resetFilters() {
+    updateFilter('')
+    updateSearch([])
+  }
+
   return (
     <>
       <section className={styles.controls}>
@@ -54,7 +60,7 @@ function GridView({ countries }) {
           </button>
         </div>
         <div className={styles.filters}>
-          <button>Reset</button>
+          <button onClick={resetFilters}>Reset</button>
           <select onChange={handleChange}>
             <option value="">Select a region</option>
             {continents?.map(continent => {
