@@ -22,8 +22,8 @@ function SearchBar() {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <input onChange={handleChange} type="text" placeholder='Busca un pais' />
-      <button type='submit'>Buscar</button>
+      <input onChange={handleChange} type="text" placeholder='Find a country' />
+      <button type='submit'>Search</button>
     </form>
   );
 }
