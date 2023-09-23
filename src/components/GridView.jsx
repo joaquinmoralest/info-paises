@@ -4,16 +4,27 @@ import Card from './Card';
 import Modal from './Modal';
 import list from '../assets/icons/list.svg'
 import grid from '../assets/icons/grid.svg'
+import { useCountryStore } from '../store';
 
 function GridView({ data }) {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedCountry, setSelectedCountry] = useState({})
   const [isGridSelected, setIsGridSelected] = useState(true)
   const [continents, setContinents] = useState()
+  const [filter, setFilter] = useState()
+  const updateFilter = useCountryStore((state) => state.updateFilter)
 
   useEffect(() => {
-    getContinents()
-  }, [])
+    let allContinents = []
+    data.forEach(country => {
+      allContinents.push(country.region)
+    })
+
+    let setWithoutDuplicate = new Set(allContinents)
+    let continentsWithoutDuplicates = Array.from(setWithoutDuplicate)
+
+    setContinents(continentsWithoutDuplicates)
+  }, [data, filter])
 
   function showModal(countryInfo) {
     setIsOpen(true)
@@ -24,21 +35,9 @@ function GridView({ data }) {
     setIsOpen(false)
   }
 
-  function getContinents() {
-    let allContinents = []
-    let filteredContinentArrays = []
-    data.forEach(country => {
-      allContinents.push(Object.values(country.continents))
-    })
-    
-    allContinents.forEach(el => [
-      filteredContinentArrays.push(el[0])
-    ])
-
-    let setWithoutDuplicate = new Set(filteredContinentArrays)
-    let continentsWithoutDuplicates = Array.from(setWithoutDuplicate)
-
-    setContinents(continentsWithoutDuplicates)
+  function handleChange(e) {
+    setFilter(e.target.value)
+    updateFilter(filter)
   }
 
   return (
@@ -54,7 +53,7 @@ function GridView({ data }) {
         </div>
         <div className={styles.filters}>
           <button>Reset</button>
-          <select>
+          <select onChange={handleChange}>
             <option value="">Select a region</option>
             {continents?.map(continent => {
               return(
