@@ -10,7 +10,7 @@ function Modal({ country, isOpen, handleClose }) {
     maps,
     population,
     timezones,
-    continents,
+    region,
     flags,
     coatOfArms,
   } = country
@@ -33,35 +33,37 @@ function Modal({ country, isOpen, handleClose }) {
           <img src={flags?.png} alt="" />
           <img src={coatOfArms?.png} alt="" />
         </div>
-        <span>{continents}</span>
-        <p>Capital: {capital}</p>
-        <p>Population: {population}</p>
-        <p>Curriencies: </p>
-        <ul>
-          {mappedCurriencies?.map((currency, index) => {
-            return(
-              <li key={index}>{currency?.name}</li>
-            )
-          })}
-        </ul>
-        <p>Languages:</p>
-        <ul>
-          {mappedLanguages?.map((language, index) => {
-            return(
-              <li key={index}>{language}</li>
-            )
-          })}
-        </ul>
-        <p>Latitude: {latlng && latlng[0]}</p>
-        <p>Longitude: {latlng && latlng[1]}</p>
-        <p>Timezones: </p>
-        <ul>
-          {timezones?.map((timezone, index) => {
-            return(
-              <li key={index}>{timezone}</li>
-            )
-          })}
-        </ul>
+        <span>{region}</span>
+        <div className={styles.body}>
+          <p>Capital: {capital}</p>
+          <p>Population: {population}</p>
+          <p>Curriencies: </p>
+          <ul>
+            {mappedCurriencies?.map((currency, index) => {
+              return(
+                <li key={index}>{currency?.name}</li>
+              )
+            })}
+          </ul>
+          <p>Languages:</p>
+          <ul>
+            {mappedLanguages?.map((language, index) => {
+              return(
+                <li key={index}>{language}</li>
+              )
+            })}
+          </ul>
+          <p>Latitude: {latlng && latlng[0]}</p>
+          <p>Longitude: {latlng && latlng[1]}</p>
+          <p>Timezones: </p>
+          <ul>
+            {timezones?.map((timezone, index) => {
+              return(
+                <li key={index}>{timezone}</li>
+              )
+            })}
+          </ul>
+        </div>
         <a href={maps?.googleMaps} target='_blank' rel="noreferrer">View in map</a>
       </div>
     </div>
