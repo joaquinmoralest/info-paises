@@ -26,3 +26,9 @@ ul {
     --color-secondary: #000000;
   }
 }
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+}
