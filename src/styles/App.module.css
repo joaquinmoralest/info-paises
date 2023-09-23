@@ -3,6 +3,7 @@
   border-bottom: 2px solid var(--color-primary);
   display: flex;
   justify-content: center;
+  transition: .2s ease-in-out;
   width: 100%;
 }
 

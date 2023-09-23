@@ -5,7 +5,6 @@
   --color-secondary: #48bad2;
   --border-radius: 12px;
   --shadow: rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  ;
 }
 
 .light {
@@ -21,6 +20,7 @@
 body {
   color: var(--color-primary);
   background-color: var(--color-secondary);
+  transition: .2s ease-in-out;
 }
 
 * {

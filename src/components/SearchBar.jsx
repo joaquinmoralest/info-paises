@@ -14,9 +14,7 @@ function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault()
-
     const dataFiltered = data.filter((country) => search === country?.name?.common.toLowerCase())
-
     updateSearch(dataFiltered)
   }
 
