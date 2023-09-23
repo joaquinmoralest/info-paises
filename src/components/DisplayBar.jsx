@@ -39,6 +39,10 @@ function DisplayBar() {
     updateFilter('')
     updateSearch([])
     updateFilteredCountries([])
+    const searchBar = document.querySelector('#searchBar')
+    const filterRegion = document.querySelector('#filterRegion')
+    searchBar.reset()
+    filterRegion.reset()
   }
 
   function filterCountries() {
@@ -58,14 +62,16 @@ function DisplayBar() {
       </div>
       <div className={styles.filters}>
         <button onClick={resetFilters}>Reset</button>
-        <select onChange={handleChange}>
-          <option value="">Select a region</option>
-          {continents?.map(continent => {
-            return(
-              <option key={continent} value={continent}>{continent}</option>
-            )
-          })}
-        </select>
+        <form id="filterRegion">
+          <select onChange={handleChange}>
+            <option value="">Select a region</option>
+            {continents?.map(continent => {
+              return(
+                <option key={continent} value={continent}>{continent}</option>
+              )
+            })}
+          </select>
+        </form>     
       </div>
     </section>
   );
