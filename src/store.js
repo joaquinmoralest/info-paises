@@ -11,10 +11,13 @@ export const useCountryStore = create((set) => {
   }
 })
 
-export const useThemeStore = create((set) => {
+export const useDisplayStore = create((set) => {
   return {
     theme: 'light',
+    displayView: 'grid',
     setDarkTheme: () => set({ theme: 'dark' }),
-    setLightTheme: () => set({ theme: 'light' })
+    setLightTheme: () => set({ theme: 'light' }),
+    setDisplayGrid: () => set({ displayView: 'grid' }),
+    setDisplayList: () => set({ displayView: 'list' })
   }
 })

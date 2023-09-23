@@ -1,14 +1,13 @@
-import { useThemeStore } from '../store';
+import { useDisplayStore } from '../store';
 import styles from '../styles/Navbar.module.css'
 import SearchBar from './SearchBar';
 import { useEffect } from 'react';
 import { IconMoonFilled, IconSunFilled } from '@tabler/icons-react';
 
 function Navbar() {
-  const theme = useThemeStore((state) => state.theme)
-  const setDarkTheme = useThemeStore((state) => state.setDarkTheme)
-  const setLightTheme = useThemeStore((state) => state.setLightTheme)
-  console.log(theme)
+  const theme = useDisplayStore((state) => state.theme)
+  const setDarkTheme = useDisplayStore((state) => state.setDarkTheme)
+  const setLightTheme = useDisplayStore((state) => state.setLightTheme)
 
   useEffect(() => {
     const body = document.querySelector('body')
