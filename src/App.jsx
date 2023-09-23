@@ -10,7 +10,6 @@ function App () {
   const searchedCountry = useCountryStore(state => state.search)
   const filter = useCountryStore(state => state.filter)
   const filteredCountries = useCountryStore(state => state.filteredCountries)
-  console.log(filteredCountries)
 
   return (
     <>

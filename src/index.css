@@ -1,13 +1,26 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  color: var(--color-primary);
-  background-color: var(--color-secondary);
   --color-primary: #000000;
   --color-secondary: #48bad2;
   --border-radius: 12px;
   --shadow: rgba(0, 0, 0, 0.23) 0px 3px 6px;
   ;
+}
+
+.light {
+  --color-primary: #000000;
+  --color-secondary: #48bad2;
+}
+
+.dark {
+  --color-primary: #48bad2;
+  --color-secondary: #000000;
+}
+
+body {
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
 }
 
 * {
@@ -18,6 +31,10 @@
 
 ul {
   list-style: none;
+}
+
+svg {
+  color: var(--color-primary);
 }
 
 @media (prefers-color-schema: dark) {

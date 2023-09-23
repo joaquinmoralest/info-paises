@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/GridView.module.css'
 import Card from './Card';
 import Modal from './Modal';
-import list from '../assets/icons/list.svg'
-import grid from '../assets/icons/grid.svg'
 import { useCountryStore } from '../store';
 import { useFetch } from '../hooks/useFetch';
+import { IconLayoutGrid, IconList } from '@tabler/icons-react';
 
 function GridView({ countries }) {
   const {data} = useFetch('https://restcountries.com/v3.1/all')
@@ -64,10 +63,10 @@ function GridView({ countries }) {
       <section className={styles.controls}>
         <div className={styles.displayControls}>
           <button onClick={() => setIsGridSelected(true)}>
-            <img src={grid} alt="" />
+            <IconLayoutGrid />
           </button>
           <button onClick={() => setIsGridSelected(false)}>
-            <img src={list} alt="" />
+            <IconList />
           </button>
         </div>
         <div className={styles.filters}>

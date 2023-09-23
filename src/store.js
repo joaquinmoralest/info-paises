@@ -10,3 +10,11 @@ export const useCountryStore = create((set) => {
     updateFilteredCountries: (newFilteredCountries) => set({ filteredCountries: newFilteredCountries })
   }
 })
+
+export const useThemeStore = create((set) => {
+  return {
+    theme: 'light',
+    setDarkTheme: () => set({ theme: 'dark' }),
+    setLightTheme: () => set({ theme: 'light' })
+  }
+})
