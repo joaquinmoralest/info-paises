@@ -16,6 +16,7 @@ function GridView({ countries }) {
   const [filter, setFilter] = useState()
   const updateFilter = useCountryStore((state) => state.updateFilter)
   const updateSearch = useCountryStore((state) => state.updateSearch)
+  const updateFilteredCountries = useCountryStore((state) => state.updateFilteredCountries)
 
   useEffect(() => {
     let allContinents = []
@@ -29,6 +30,11 @@ function GridView({ countries }) {
     setContinents(continentsWithoutDuplicates)
   }, [data])
 
+  useEffect(() => {
+    updateFilter(filter)
+    filterCountries()
+  }, [filter])
+
   function showModal(countryInfo) {
     setIsOpen(true)
     setSelectedCountry(countryInfo)
@@ -38,14 +44,19 @@ function GridView({ countries }) {
     setIsOpen(false)
   }
 
+  function filterCountries() {
+    const countries = data?.filter(country => country.region === filter)
+    updateFilteredCountries(countries)
+  }
+
   function handleChange(e) {
     setFilter(e.target.value)
-    updateFilter(filter)
   }
 
   function resetFilters() {
     updateFilter('')
     updateSearch([])
+    updateFilteredCountries([])
   }
 
   return (

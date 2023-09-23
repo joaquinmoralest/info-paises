@@ -4,19 +4,13 @@ import { useFetch } from './hooks/useFetch'
 import styles from './styles/App.module.css'
 import GridView from './components/GridView'
 import { useCountryStore } from './store'
-import { useEffect, useState } from 'react'
 
 function App () {
   const {data, loading, error} = useFetch('https://restcountries.com/v3.1/all')
-  const [filteredCountries, setFilteredCountries] = useState([])
   const searchedCountry = useCountryStore(state => state.search)
   const filter = useCountryStore(state => state.filter)
-
-  useEffect(() => {
-    const countries = data?.filter(country => country.region === filter)
-    setFilteredCountries(countries)
-    console.log(filter)
-  }, [data, filter])
+  const filteredCountries = useCountryStore(state => state.filteredCountries)
+  console.log(filteredCountries)
 
   return (
     <>
