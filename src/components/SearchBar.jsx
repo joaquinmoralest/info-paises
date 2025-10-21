@@ -5,7 +5,7 @@ import { useCountryStore } from '../store';
 
 function SearchBar() {
   const [search, setSearch] = useState('')
-  const {data} = useFetch('https://restcountries.com/v3.1/all')
+  const {data} = useFetch('https://restcountries.com/v3.1/all?fields=name,capital,population,languages,currencies,latlng,timezones,coatOfArms,flags,region')
   const updateSearch = useCountryStore((state) => state.updateSearch)
 
   function handleChange(e) {    

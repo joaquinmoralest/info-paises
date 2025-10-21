@@ -5,7 +5,7 @@ import styles from '../styles/GridView.module.css'
 import { IconLayoutGrid, IconList } from "@tabler/icons-react"
 
 function DisplayBar() {
-  const {data} = useFetch('https://restcountries.com/v3.1/all')
+  const {data} = useFetch('https://restcountries.com/v3.1/all?fields=name,capital,population,languages,currencies,latlng,timezones,coatOfArms,flags,region')
   const [continents, setContinents] = useState()
   const [filter, setFilter] = useState()
   const updateFilter = useCountryStore((state) => state.updateFilter)
